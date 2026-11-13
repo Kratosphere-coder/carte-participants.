@@ -1,1 +1,16 @@
-
+[
+  {
+    "commune": "Lyon",
+    "codePostal": "69002",
+    "latitude": 45.7578,
+    "longitude": 4.8320,
+    "participants": 3
+  },
+  {
+    "commune": "Bordeaux",
+    "codePostal": "33000",
+    "latitude": 44.8378,
+    "longitude": -0.5792,
+    "participants": 1
+  }
+]
