@@ -1,49 +1,177 @@
+css
+:root {
+  --primary: #003b70;
+  --secondary: #0078d4;
+  --background: #f4f7fa;
+  --text: #1b1f23;
+  --border: #d0d7de;
+  --success: #188038;
+  --error: #c5221f;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  color: #222;
-  background: #f5f7fa;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
 }
 
-header,
-footer {
-  padding: 16px 20px;
+header {
+  padding: 18px 28px;
+  color: white;
   text-align: center;
+  background: var(--primary);
 }
 
 header h1 {
   margin: 0 0 6px;
+  font-size: 2rem;
 }
 
 header p {
   margin: 0;
-  color: #555;
+  opacity: 0.9;
 }
 
 main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
+  display: flex;
+  height: calc(100vh - 105px);
+  min-height: 600px;
 }
 
-#carte {
+.sidebar {
+  z-index: 2;
+  width: 360px;
+  padding: 24px;
+  overflow-y: auto;
+  background: white;
+  box-shadow: 2px 0 10px rgb(0 0 0 / 12%);
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+label {
+  display: block;
+  margin: 16px 0 6px;
+  font-weight: 700;
+}
+
+input[type="text"] {
   width: 100%;
-  height: 70vh;
-  min-height: 420px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
-#message {
-  text-align: center;
-  color: #8b1e1e;
+input[type="text"]:focus {
+  outline: 2px solid #91caff;
+  border-color: var(--secondary);
 }
 
-footer {
-  color: #555;
+.checkbox-label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
+.checkbox-label input {
+  margin-top: 3px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 13px;
+  color: white;
+  cursor: pointer;
+  border: 0;
+  border-radius: 6px;
+  background: var(--secondary);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+button:hover:not(:disabled) {
+  background: #005ea8;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background: #9aa7b2;
+}
+
+.message {
+  min-height: 24px;
+  margin: 16px 0 0;
+  font-weight: 700;
+}
+
+.message.success {
+  color: var(--success);
+}
+
+.message.error {
+  color: var(--error);
+}
+
+.privacy {
+  margin-top: 30px;
+  padding: 14px;
+  border-radius: 6px;
+  background: #edf5ff;
+  font-size: 0.85rem;
+}
+
+.privacy h3 {
+  margin: 0 0 8px;
+}
+
+.privacy p {
+  margin: 0;
+}
+
+#map {
+  flex: 1;
+  min-width: 0;
+}
+
+.city-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  color: white;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 35%);
+  background: var(--primary);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  main {
+    display: block;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  #map {
+    height: 65vh;
+  }
+}
