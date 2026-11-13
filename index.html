@@ -1,30 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Carte des participants</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Je suis constituant</title>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  >
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <header>
-    <h1>Carte des participants</h1>
-    <p>Nombre de participants par commune</p>
+    <h1>Je suis constituant</h1>
+    <p>Inscrivez votre commune et visualisez la mobilisation en Belgique.</p>
   </header>
 
   <main>
-    <div id="carte" aria-label="Carte des communes participantes"></div>
-    <p id="message" role="status"></p>
+    <aside class="sidebar">
+      <h2>Participer</h2>
+
+      <form id="participant-form">
+        <label for="pseudo">Prénom ou pseudonyme</label>
+        <input
+          id="pseudo"
+          name="pseudo"
+          type="text"
+          placeholder="Ex. Dalvy"
+          maxlength="40"
+          required
+        >
+
+        <label for="commune">Commune</label>
+        <input
+          id="commune"
+          name="commune"
+          type="text"
+          placeholder="Ex. Bruxelles"
+          maxlength="100"
+          required
+        >
+
+        <label for="code-postal">Code postal</label>
+        <input
+          id="code-postal"
+          name="code-postal"
+          type="text"
+          inputmode="numeric"
+          pattern="[0-9]{4}"
+          placeholder="Ex. 1000"
+          required
+        >
+
+        <label class="checkbox-label" for="consent">
+          <input id="consent" type="checkbox" required>
+          <span>
+            J’accepte que mon pseudonyme et ma commune soient affichés sur la carte.
+          </span>
+        </label>
+
+        <button id="submit-button" type="submit" disabled>
+          Valider
+        </button>
+
+        <p id="message" class="message" aria-live="polite"></p>
+      </form>
+
+      <section class="privacy">
+        <h3>Confidentialité</h3>
+        <p>
+          Utilisez un pseudonyme plutôt que votre nom complet. Le pseudonyme
+          et la commune seront visibles sur la carte.
+        </p>
+      </section>
+    </aside>
+
+    <section id="map" aria-label="Carte de Belgique"></section>
   </main>
 
-  <footer>
-    <small>Les points indiquent le centre des communes, pas l’adresse des participants.</small>
-  </footer>
-
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <script src="app.js"></script>
 </body>
 </html>
