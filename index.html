@@ -1,1 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carte des participants</title>
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Carte des participants</h1>
+    <p>Nombre de participants par commune</p>
+  </header>
+
+  <main>
+    <div id="carte" aria-label="Carte des communes participantes"></div>
+    <p id="message" role="status"></p>
+  </main>
+
+  <footer>
+    <small>Les points indiquent le centre des communes, pas l’adresse des participants.</small>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
