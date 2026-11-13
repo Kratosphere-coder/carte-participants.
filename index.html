@@ -3,23 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Je suis constituant</title>
 
+  <!-- Feuille de style de la carte Leaflet -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   >
 
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-  >
-
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
-  >
-
+  <!-- Feuille de style du site -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -66,7 +59,7 @@
         >
 
         <label class="checkbox-label" for="consent">
-          <input id="consent" type="checkbox" required>
+          <input id="consent" name="consent" type="checkbox" required>
           <span>
             J’accepte que mon pseudonyme et ma commune soient affichés sur la carte.
           </span>
@@ -91,12 +84,13 @@
     <section id="map" aria-label="Carte de Belgique"></section>
   </main>
 
+  <!-- Leaflet : affichage de la carte -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-
+  <!-- Supabase : connexion à la base de données -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+  <!-- Votre code JavaScript. À charger après Leaflet et Supabase. -->
   <script src="app.js"></script>
 </body>
 </html>
