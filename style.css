@@ -173,4 +173,9 @@ button:disabled {
   #map {
     height: 65vh;
   }
+  #total-count {
+  margin: 8px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
 }
