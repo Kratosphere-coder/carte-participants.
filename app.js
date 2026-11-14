@@ -19,6 +19,7 @@ const form = document.getElementById("participant-form");
 const consent = document.getElementById("consent");
 const submitButton = document.getElementById("submit-button");
 const message = document.getElementById("message");
+const totalCountElement = document.getElementById("total-count");
 
 consent.addEventListener("change", () => {
   submitButton.disabled = !consent.checked;
@@ -42,6 +43,23 @@ function createCommuneIcon(count) {
     iconSize: [42, 42],
     iconAnchor: [21, 21]
   });
+}
+
+async function updateTotalCount() {
+  const { count, error } = await supabaseClient
+    .from("participants")
+    .select("*", { count: "exact", head: true });
+
+  if (error) {
+    console.error("Erreur du compteur :", error);
+    totalCountElement.textContent = "Compteur momentanément indisponible";
+    return;
+  }
+
+  const total = count ?? 0;
+
+  totalCountElement.textContent =
+    `Nous sommes déjà ${total} constituant${total === 1 ? "" : "s"}`;
 }
 
 async function loadParticipants() {
@@ -182,6 +200,7 @@ form.addEventListener("submit", async (event) => {
     );
 
     await loadParticipants();
+    await updateTotalCount();
   } catch (error) {
     console.error("Erreur :", error);
 
@@ -196,3 +215,4 @@ form.addEventListener("submit", async (event) => {
 });
 
 loadParticipants();
+updateTotalCount();
